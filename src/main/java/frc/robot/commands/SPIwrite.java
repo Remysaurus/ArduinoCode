@@ -4,15 +4,13 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.SPIport;
 
-public class SPIread extends Command {
-  /** Creates a new SPIread. */
+public class SPIwrite extends Command {
+  /** Creates a new SPIwrite. */
   SPIport m_SPIport = new SPIport();
-  int balls;
-  public SPIread(SPIport SPIport) {
+  public SPIwrite(SPIport SPIport) {
     m_SPIport = SPIport;
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -24,7 +22,7 @@ public class SPIread extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    SmartDashboard.putNumber("Arduino", m_SPIport.read());
+    m_SPIport.write(-2147483647);
   }
 
   // Called once the command ends or is interrupted.
